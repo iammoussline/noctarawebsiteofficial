@@ -27,7 +27,7 @@ export function Footer({ content }: FooterProps) {
             {/* Socials */}
             <div className="flex gap-3 mt-2">
               {[
-                { label: 'Instagram', href: '#', icon: (
+                { label: 'Instagram', href: 'https://www.instagram.com/thenoctara_/', icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <rect x="2" y="2" width="20" height="20" rx="5"/>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
@@ -52,6 +52,8 @@ export function Footer({ content }: FooterProps) {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-8 h-8 rounded-full dark:bg-dark-muted bg-light-muted flex items-center justify-center dark:text-dark-subtle text-light-subtle hover:text-accent hover:dark:bg-dark-border hover:bg-light-border transition-all duration-300"
                   data-cursor="link"
                 >

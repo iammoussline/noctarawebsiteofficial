@@ -195,7 +195,7 @@ export function Contact({ content }: ContactProps) {
             <div className="flex gap-3 pt-2">
               {[
                 {
-                  label: 'Instagram', href: '#',
+                  label: 'Instagram', href: 'https://www.instagram.com/thenoctara_/',
                   icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
                 },
                 {
@@ -207,6 +207,8 @@ export function Contact({ content }: ContactProps) {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-10 h-10 rounded-full dark:bg-dark-surface bg-light-surface border dark:border-dark-border border-light-border flex items-center justify-center dark:text-dark-subtle text-light-subtle hover:border-primary hover:text-primary transition-all duration-300"
                   data-cursor="link"
                 >

@@ -77,10 +77,6 @@ export const metadata: Metadata = {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
     ],
-    apple: '/apple-icon.png',
-  },
-  verification: {
-    google: '',
   },
 }
 
@@ -164,7 +160,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               currenciesAccepted: 'EUR',
               paymentAccepted: 'Carte bancaire, Virement bancaire',
               sameAs: [
-                'https://www.instagram.com/noctara',
+                'https://www.instagram.com/thenoctara_/',
                 'https://www.linkedin.com/company/noctara',
               ],
             }),

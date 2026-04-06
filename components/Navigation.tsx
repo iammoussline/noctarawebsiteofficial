@@ -171,7 +171,12 @@ export function Navigation({ content }: NavigationProps) {
             {/* CTA desktop */}
             <Magnetic strength={0.25}>
             <button
-              onClick={() => document.getElementById('devis-trigger')?.click()}
+              onClick={() => {
+                if (menuOpen) closeMenu()
+                setTimeout(() => {
+                  document.querySelector('#tarifs')?.scrollIntoView({ behavior: 'smooth' })
+                }, menuOpen ? 500 : 0)
+              }}
               className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-heading font-semibold hover:bg-primary-light transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
               data-cursor="link"
             >
@@ -239,7 +244,7 @@ export function Navigation({ content }: NavigationProps) {
             type="button"
             onClick={() => {
               closeMenu()
-              setTimeout(() => document.getElementById('devis-trigger')?.click(), 500)
+              setTimeout(() => document.querySelector('#tarifs')?.scrollIntoView({ behavior: 'smooth' }), 500)
             }}
             className="menu-link mt-4 px-8 py-3.5 rounded-full bg-primary text-white font-heading font-semibold text-base hover:bg-primary-light transition-colors"
           >
