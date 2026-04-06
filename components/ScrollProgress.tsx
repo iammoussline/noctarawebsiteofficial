@@ -14,7 +14,7 @@ export function ScrollProgress() {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const progress = docHeight > 0 ? scrollTop / docHeight : 0
-      bar.style.height = `${progress * 100}%`
+      bar.style.width = `${progress * 100}%`
     }
 
     // Lenis fires scroll events on window — on écoute les deux
@@ -26,13 +26,13 @@ export function ScrollProgress() {
 
   return (
     <div
-      className="fixed right-0 top-0 w-[3px] h-full z-50 pointer-events-none dark:bg-dark-border bg-light-border"
+      className="fixed top-0 left-0 right-0 h-[2px] z-[9999] pointer-events-none dark:bg-dark-border/40 bg-light-border/40"
       aria-hidden="true"
     >
       <div
         ref={barRef}
-        className="w-full bg-primary transition-none"
-        style={{ height: '0%' }}
+        className="h-full bg-primary transition-none"
+        style={{ width: '0%' }}
       />
     </div>
   )
