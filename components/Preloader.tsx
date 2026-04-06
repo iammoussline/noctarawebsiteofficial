@@ -36,31 +36,35 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
     if (!container || !panelTop || !panelBottom || !logo) return
 
+    // Initialise les états cachés AVANT la timeline — évite le flash de l'état final
+    gsap.set(logo, { opacity: 0, y: 36 })
+    if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'left center' })
+    if (subtitle) gsap.set(subtitle, { opacity: 0, y: 8 })
+
     const tl = gsap.timeline()
 
     // Phase 1 : logo Borel apparaît (translateY + opacity)
-    tl.from(logo, {
-      y: 36,
-      opacity: 0,
+    tl.to(logo, {
+      y: 0,
+      opacity: 1,
       duration: 1.0,
       ease: 'power3.out',
     }, 0.2)
 
     // Phase 2 : ligne séparatrice
     if (line) {
-      tl.from(line, {
-        scaleX: 0,
+      tl.to(line, {
+        scaleX: 1,
         duration: 0.7,
         ease: 'power2.out',
-        transformOrigin: 'left center',
       }, 0.7)
     }
 
     // Phase 3 : sous-titre
     if (subtitle) {
-      tl.from(subtitle, {
-        opacity: 0,
-        y: 8,
+      tl.to(subtitle, {
+        opacity: 1,
+        y: 0,
         duration: 0.5,
         ease: 'power2.out',
       }, 1.0)

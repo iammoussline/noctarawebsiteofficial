@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { gsap } from 'gsap'
+import { Magnetic } from '@/components/Magnetic'
 import type { SiteContent } from '@/lib/content/types'
 
 interface NavigationProps {
@@ -110,16 +111,18 @@ export function Navigation({ content }: NavigationProps) {
           <ul className="hidden lg:flex items-center gap-8">
             {content.nav.links.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-sm font-heading font-medium transition-colors duration-200 tracking-wide hover:text-accent ${
-                    scrolled ? 'dark:text-white/70 text-[#020F21]/70' : 'text-white/80'
-                  }`}
-                  data-cursor="link"
-                >
-                  {link.label}
-                </a>
+                <Magnetic strength={0.28}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`text-sm font-heading font-medium transition-colors duration-200 tracking-wide hover:text-accent ${
+                      scrolled ? 'dark:text-white/70 text-[#020F21]/70' : 'text-white/80'
+                    }`}
+                    data-cursor="link"
+                  >
+                    {link.label}
+                  </a>
+                </Magnetic>
               </li>
             ))}
           </ul>
@@ -127,6 +130,7 @@ export function Navigation({ content }: NavigationProps) {
           {/* Right actions */}
           <div className="flex items-center gap-2 sm:gap-3 relative z-10">
             {/* Theme toggle */}
+            <Magnetic strength={0.4}>
             <button
               onClick={toggleTheme}
               className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:text-accent ${
@@ -147,8 +151,10 @@ export function Navigation({ content }: NavigationProps) {
                 </svg>
               )}
             </button>
+            </Magnetic>
 
             {/* Language pill */}
+            <Magnetic strength={0.4}>
             <Link
               href={langHref}
               className={`text-xs font-display font-bold transition-all duration-200 tracking-widest w-9 h-9 rounded-full flex items-center justify-center border hover:text-accent hover:border-accent ${
@@ -160,8 +166,10 @@ export function Navigation({ content }: NavigationProps) {
             >
               {isFr ? 'EN' : 'FR'}
             </Link>
+            </Magnetic>
 
             {/* CTA desktop */}
+            <Magnetic strength={0.25}>
             <button
               onClick={() => document.getElementById('devis-trigger')?.click()}
               className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-heading font-semibold hover:bg-primary-light transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
@@ -169,6 +177,7 @@ export function Navigation({ content }: NavigationProps) {
             >
               {content.nav.book}
             </button>
+            </Magnetic>
 
             {/* Hamburger — toujours blanc pour rester visible sur le hero */}
             <button

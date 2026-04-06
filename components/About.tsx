@@ -21,6 +21,25 @@ export function About({ content }: AboutProps) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Clip-path reveal on image container
+      const imageContainer = imageRef.current?.parentElement
+      if (imageContainer) {
+        gsap.fromTo(
+          imageContainer,
+          { clipPath: 'inset(100% 0% 0% 0%)' },
+          {
+            clipPath: 'inset(0% 0% 0% 0%)',
+            duration: 1.2,
+            ease: 'power4.inOut',
+            scrollTrigger: {
+              trigger: imageContainer,
+              start: 'top 80%',
+              once: true,
+            },
+          }
+        )
+      }
+
       // Image parallax
       gsap.to(imageRef.current, {
         y: '-8%',
@@ -33,16 +52,18 @@ export function About({ content }: AboutProps) {
         },
       })
 
-      // Text reveal
+      // Text reveal — stagger children
       gsap.from('.about-text > *', {
         opacity: 0,
-        y: 30,
-        stagger: 0.12,
-        duration: 0.9,
+        y: 32,
+        stagger: 0.1,
+        duration: 0.95,
         ease: 'power3.out',
+        clearProps: 'all',
         scrollTrigger: {
           trigger: textRef.current,
-          start: 'top 75%',
+          start: 'top 78%',
+          once: true,
         },
       })
     }, sectionRef)

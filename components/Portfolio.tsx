@@ -53,18 +53,37 @@ export function Portfolio({ content }: PortfolioProps) {
   // GSAP reveal
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.portfolio-item', {
+      // Header reveal
+      gsap.from('.portfolio-header > *', {
         opacity: 0,
-        y: 40,
-        scale: 0.96,
-        stagger: 0.08,
-        duration: 0.9,
+        y: 24,
+        stagger: 0.1,
+        duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: gridRef.current,
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          once: true,
         },
       })
+
+      // Clip-path stagger on grid items
+      gsap.fromTo('.portfolio-item',
+        { clipPath: 'inset(0% 0% 100% 0%)', opacity: 0 },
+        {
+          clipPath: 'inset(0% 0% 0% 0%)',
+          opacity: 1,
+          stagger: { each: 0.07, from: 'start' },
+          duration: 0.85,
+          ease: 'power3.inOut',
+          clearProps: 'clip-path',
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      )
     }, sectionRef)
 
     return () => ctx.revert()
@@ -78,7 +97,7 @@ export function Portfolio({ content }: PortfolioProps) {
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className="portfolio-header mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
               PORTFOLIO
