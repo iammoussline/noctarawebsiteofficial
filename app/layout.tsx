@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     template: '%s | Noctara.',
     default: 'Noctara. — Photographe Professionnel | Clermont-Ferrand',
   },
-  description: 'Photographe professionnel basé à Clermont-Ferrand. Portrait, mariage, corporate, événement. Chaque instant a une seule chance.',
-  keywords: ['photographe', 'Clermont-Ferrand', 'portrait', 'mariage', 'corporate', 'événement', 'professionnel', 'Kandemir', 'Noctara'],
+  description: 'Noctara. — Photographe professionnel à Clermont-Ferrand. Portrait, mariage, corporate et événements. Des images qui capturent chaque instant unique, partout en France et à l\'international.',
+  keywords: ['photographe professionnel', 'Clermont-Ferrand', 'portrait', 'mariage', 'photographe corporate', 'événement', 'shooting photo', 'Kandemir Mouhammed', 'Noctara'],
   authors: [{ name: 'Kandemir MOUHAMMED — Noctara.' }],
   creator: 'Noctara.',
   openGraph: {
@@ -51,20 +51,20 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     url: 'https://thenoctara.com',
     siteName: 'Noctara.',
-    title: 'Noctara. — Photographe Professionnel',
-    description: 'Photographe professionnel basé à Clermont-Ferrand. Chaque instant a une seule chance.',
-    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Noctara Photography' }],
+    title: 'Noctara. — Photographe Professionnel | Clermont-Ferrand',
+    description: 'Photographe professionnel à Clermont-Ferrand. Portrait, mariage, corporate, événements. Chaque instant a une seule chance.',
+    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Noctara. — Photographe professionnel à Clermont-Ferrand' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Noctara. — Photographe Professionnel',
-    description: 'Photographe professionnel basé à Clermont-Ferrand.',
+    title: 'Noctara. — Photographe Professionnel | Clermont-Ferrand',
+    description: 'Portrait, mariage, corporate, événements. Partout en France. Chaque instant a une seule chance.',
     images: ['/og.jpg'],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   alternates: {
     canonical: 'https://thenoctara.com',
@@ -72,6 +72,15 @@ export const metadata: Metadata = {
       'fr': 'https://thenoctara.com',
       'en': 'https://thenoctara.com/en',
     },
+  },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
+  },
+  verification: {
+    google: '',
   },
 }
 
@@ -104,6 +113,62 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           as="image"
           href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
           fetchPriority="high"
+        />
+        {/* JSON-LD Structured Data — ProfessionalService */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': ['ProfessionalService', 'LocalBusiness'],
+              name: 'Noctara.',
+              legalName: 'KANDEMIR MOUHAMMED — NOCTARA.',
+              description: 'Photographe professionnel à Clermont-Ferrand. Portrait, mariage, corporate, événements. Partout en France et à l\'international.',
+              url: 'https://thenoctara.com',
+              logo: 'https://thenoctara.com/icon.svg',
+              image: 'https://thenoctara.com/og.jpg',
+              email: 'contact@thenoctara.com',
+              foundingDate: '2025',
+              founder: {
+                '@type': 'Person',
+                name: 'Kandemir Mouhammed',
+                jobTitle: 'Photographe professionnel',
+              },
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '17 B Rue Bartholdi, Bâtiment 3, Appartement 313',
+                addressLocality: 'Clermont-Ferrand',
+                postalCode: '63100',
+                addressCountry: 'FR',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 45.7797,
+                longitude: 3.0863,
+              },
+              areaServed: [
+                { '@type': 'Country', name: 'France' },
+                { '@type': 'Continent', name: 'Europe' },
+              ],
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Services photographiques',
+                itemListElement: [
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Portrait' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mariage' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Corporate' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Événement' } },
+                ],
+              },
+              priceRange: '€€€',
+              currenciesAccepted: 'EUR',
+              paymentAccepted: 'Carte bancaire, Virement bancaire',
+              sameAs: [
+                'https://www.instagram.com/noctara',
+                'https://www.linkedin.com/company/noctara',
+              ],
+            }),
+          }}
         />
       </head>
       <body className="dark:bg-dark-bg bg-light-bg dark:text-dark-text text-light-text">

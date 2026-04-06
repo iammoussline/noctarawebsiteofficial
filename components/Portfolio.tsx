@@ -67,23 +67,21 @@ export function Portfolio({ content }: PortfolioProps) {
         },
       })
 
-      // Clip-path stagger on grid items
-      gsap.fromTo('.portfolio-item',
-        { clipPath: 'inset(0% 0% 100% 0%)', opacity: 0 },
-        {
-          clipPath: 'inset(0% 0% 0% 0%)',
-          opacity: 1,
-          stagger: { each: 0.07, from: 'start' },
-          duration: 0.85,
-          ease: 'power3.inOut',
-          clearProps: 'clip-path',
-          scrollTrigger: {
-            trigger: gridRef.current,
-            start: 'top 85%',
-            once: true,
-          },
-        }
-      )
+      // Stagger reveal on grid items
+      gsap.from('.portfolio-item', {
+        opacity: 0,
+        y: 32,
+        scale: 0.97,
+        stagger: { each: 0.07, from: 'start' },
+        duration: 0.85,
+        ease: 'power3.out',
+        clearProps: 'all',
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: 'top 85%',
+          once: true,
+        },
+      })
     }, sectionRef)
 
     return () => ctx.revert()

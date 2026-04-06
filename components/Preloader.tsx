@@ -37,6 +37,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
     if (!container || !panelTop || !panelBottom || !logo) return
 
     // Initialise les états cachés AVANT la timeline — évite le flash de l'état final
+    // Les états sont aussi définis inline dans le JSX (opacity:0) pour bloquer dès le premier rendu
     gsap.set(logo, { opacity: 0, y: 36 })
     if (line) gsap.set(line, { scaleX: 0, transformOrigin: 'left center' })
     if (subtitle) gsap.set(subtitle, { opacity: 0, y: 8 })
@@ -47,17 +48,17 @@ export function Preloader({ onComplete }: PreloaderProps) {
     tl.to(logo, {
       y: 0,
       opacity: 1,
-      duration: 1.0,
+      duration: 1.1,
       ease: 'power3.out',
-    }, 0.2)
+    }, 0.3)
 
     // Phase 2 : ligne séparatrice
     if (line) {
       tl.to(line, {
         scaleX: 1,
-        duration: 0.7,
+        duration: 0.8,
         ease: 'power2.out',
-      }, 0.7)
+      }, 0.85)
     }
 
     // Phase 3 : sous-titre
@@ -65,39 +66,39 @@ export function Preloader({ onComplete }: PreloaderProps) {
       tl.to(subtitle, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.6,
         ease: 'power2.out',
-      }, 1.0)
+      }, 1.2)
     }
 
     // Phase 4 : compteur 0 → 100
     const counterObj = { val: 0 }
     tl.to(counterObj, {
       val: 100,
-      duration: 1.8,
+      duration: 2.2,
       ease: 'power2.inOut',
       onUpdate: () => setCount(Math.round(counterObj.val)),
-    }, 0.4)
+    }, 0.5)
 
-    // Phase 5 : glow à 100 %
+    // Phase 5 : glow à 100 % — pause visuelle avant sortie
     tl.to(logo, {
-      filter: 'drop-shadow(0 0 24px rgba(255, 189, 89, 0.5))',
-      duration: 0.3,
-    }, 2.3)
+      filter: 'drop-shadow(0 0 28px rgba(255, 189, 89, 0.55))',
+      duration: 0.4,
+    }, 2.8)
 
     // Phase 6 : sortie cinématique — volets + logo scale-out
     tl.to([panelTop, panelBottom], {
       scaleY: 0,
-      duration: 0.9,
+      duration: 0.95,
       ease: 'power4.inOut',
-    }, 2.7)
+    }, 3.5)
 
     tl.to(logo, {
-      scale: 0.88,
+      scale: 0.85,
       opacity: 0,
-      duration: 0.6,
+      duration: 0.65,
       ease: 'power3.in',
-    }, 2.7)
+    }, 3.5)
 
     tl.to(container, {
       duration: 0.05,
@@ -105,7 +106,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
         sessionStorage.setItem('noctara-loaded', '1')
         onComplete()
       },
-    }, 3.5)
+    }, 4.4)
 
     return () => { tl.kill() }
   }, [onComplete])
@@ -160,6 +161,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
           alignItems: 'center',
           gap: '20px',
           textAlign: 'center',
+          opacity: 0,
+          transform: 'translateY(36px)',
         }}
       >
         {/* Logo Borel */}
