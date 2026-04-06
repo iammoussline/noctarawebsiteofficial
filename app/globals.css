@@ -223,5 +223,5 @@ html.lenis {
   left: calc(50% + 32px);
   right: calc(-50% + 32px);
   height: 1px;
-  background: linear-gradient(to right, #1858ae40, #1858ae40);
+  background: linear-gradient(to right, transparent, #1858ae80, transparent);
 }

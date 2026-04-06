@@ -164,7 +164,7 @@ export function Testimonials({ content }: TestimonialsProps) {
                   className={`rounded-full transition-all duration-300 ${
                     i === active
                       ? 'w-8 h-2 bg-primary'
-                      : 'w-2 h-2 dark:bg-dark-muted bg-light-muted hover:bg-primary/50'
+                      : 'w-4 h-4 dark:bg-dark-muted bg-light-muted hover:bg-primary/50'
                   }`}
                   aria-label={`Go to ${i + 1}`}
                   data-cursor="link"

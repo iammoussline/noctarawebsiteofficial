@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { SiteContent } from '@/lib/content/types'
+import { DRAWER_INPUT_CLASS } from '@/lib/ui-constants'
 
 interface DevisDrawerProps {
   content: SiteContent
@@ -56,7 +57,7 @@ export function DevisDrawer({ content, isOpen, prestation, onClose }: DevisDrawe
     }
   }
 
-  const inputClass = `w-full px-4 py-3 rounded-lg dark:bg-dark-muted bg-light-muted border dark:border-dark-border border-light-border dark:text-dark-text text-light-text placeholder:dark:text-dark-subtle placeholder:text-light-subtle text-sm font-body focus:outline-none focus:border-primary transition-colors duration-200`
+  const inputClass = DRAWER_INPUT_CLASS
 
   return (
     <AnimatePresence>

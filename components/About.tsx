@@ -41,16 +41,18 @@ export function About({ content }: AboutProps) {
       }
 
       // Image parallax
-      gsap.to(imageRef.current, {
-        y: '-8%',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      })
+      if (imageRef.current) {
+        gsap.to(imageRef.current, {
+          y: '-8%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        })
+      }
 
       // Text reveal — stagger children
       gsap.from('.about-text > *', {

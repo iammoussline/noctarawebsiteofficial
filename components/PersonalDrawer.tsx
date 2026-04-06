@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { SiteContent } from '@/lib/content/types'
+import { DRAWER_INPUT_CLASS as INPUT_CLASS } from '@/lib/ui-constants'
 
 interface PersonalDrawerProps {
   content: SiteContent
@@ -10,9 +11,6 @@ interface PersonalDrawerProps {
   prestation: string
   onClose: () => void
 }
-
-const INPUT_CLASS =
-  'w-full px-4 py-3 rounded-lg dark:bg-dark-muted bg-light-muted border dark:border-dark-border border-light-border dark:text-dark-text text-light-text placeholder:dark:text-dark-subtle placeholder:text-light-subtle text-sm font-body focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200'
 
 export function PersonalDrawer({ content, isOpen, prestation, onClose }: PersonalDrawerProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')

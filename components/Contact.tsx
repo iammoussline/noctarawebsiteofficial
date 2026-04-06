@@ -5,15 +5,13 @@ import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { SiteContent } from '@/lib/content/types'
+import { CONTACT_INPUT_CLASS as INPUT_CLASS } from '@/lib/ui-constants'
 
 gsap.registerPlugin(ScrollTrigger)
 
 interface ContactProps {
   content: SiteContent
 }
-
-const INPUT_CLASS =
-  'w-full px-5 py-4 rounded-xl dark:bg-dark-surface bg-light-surface border dark:border-dark-border border-light-border dark:text-dark-text text-light-text placeholder:dark:text-dark-subtle placeholder:text-light-subtle text-sm font-body focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all duration-200'
 
 const PROJECT_TYPES_FR = ['Portrait', 'Corporate', 'Mariage', 'Événement', 'Autre']
 const PROJECT_TYPES_EN = ['Portrait', 'Corporate', 'Wedding', 'Events', 'Other']
