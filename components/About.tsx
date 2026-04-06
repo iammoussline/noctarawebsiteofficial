@@ -93,7 +93,7 @@ export function About({ content }: AboutProps) {
               />
             </div>
             {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t dark:from-dark-bg/50 from-black/20 to-transparent" />
 
             {/* Tag badge */}
             <div className="absolute bottom-6 left-6 px-4 py-2 rounded-full dark:bg-dark-bg/80 bg-light-bg/80 backdrop-blur-sm border dark:border-dark-border border-light-border">

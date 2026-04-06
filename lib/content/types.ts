@@ -48,7 +48,7 @@ export interface SiteContent {
   testimonials: {
     title: string
     subtitle: string
-    items: { name: string; role: string; text: string; initials: string }[]
+    items: { name: string; role: string; text: string; initials: string; rating?: number }[]
   }
   clients: {
     title: string

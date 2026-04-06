@@ -193,17 +193,17 @@ export function Navigation({ content }: NavigationProps) {
               aria-expanded={menuOpen}
             >
               <span
-                className="block h-[2px] w-6 bg-white transition-all duration-300 origin-center"
+                className={`block h-[2px] w-6 transition-all duration-300 origin-center ${scrolled ? 'dark:bg-white bg-dark-bg' : 'bg-white'}`}
                 style={{
                   transform: menuOpen ? 'translateY(7px) rotate(45deg)' : 'none',
                 }}
               />
               <span
-                className="block h-[2px] w-4 bg-white transition-all duration-300"
+                className={`block h-[2px] w-4 transition-all duration-300 ${scrolled ? 'dark:bg-white bg-dark-bg' : 'bg-white'}`}
                 style={{ opacity: menuOpen ? 0 : 1 }}
               />
               <span
-                className="block h-[2px] w-6 bg-white transition-all duration-300 origin-center"
+                className={`block h-[2px] w-6 transition-all duration-300 origin-center ${scrolled ? 'dark:bg-white bg-dark-bg' : 'bg-white'}`}
                 style={{
                   transform: menuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
                 }}

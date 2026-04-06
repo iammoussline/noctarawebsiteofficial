@@ -120,11 +120,11 @@ export const en: SiteContent = {
     title: 'What they say',
     subtitle: 'My clients\' satisfaction is my best recommendation.',
     items: [
-      { name: 'Sophie M.', role: 'Bride — Summer 2024', text: 'Absolutely beautiful photos that capture the essence of our day. I\'m moved every time I look at them. Thank you from the bottom of my heart!', initials: 'SM' },
-      { name: 'Thomas D.', role: 'Sales Director', text: 'Exceptional quality corporate shoot. Our team is delighted, the photos were used immediately for our website and communication materials.', initials: 'TD' },
-      { name: 'Clara B.', role: 'Fashion Blogger', text: 'Exactly what I was looking for my Instagram content. Creative, attentive, and a result that exceeds my expectations. I\'ll definitely come back.', initials: 'CB' },
-      { name: 'Marc & Julie', role: 'Couple — 2024', text: 'We were looking for someone discreet who knows how to blend in to capture real moments. That\'s exactly what we got. Thank you so much.', initials: 'MJ' },
-      { name: 'Volta Agency', role: 'Art Director', text: 'Professionalism, responsiveness, and a rare artistic sense. A trusted partner for all our visual projects. Highly recommended.', initials: 'AV' },
+      { name: 'Sophie M.', role: 'Bride — Summer 2024', text: 'Absolutely beautiful photos that capture the essence of our day. I\'m moved every time I look at them. Thank you from the bottom of my heart!', initials: 'SM', rating: 5 },
+      { name: 'Thomas D.', role: 'Sales Director', text: 'Exceptional quality corporate shoot. Our team is delighted, the photos were used immediately for our website and communication materials.', initials: 'TD', rating: 5 },
+      { name: 'Clara B.', role: 'Fashion Blogger', text: 'Exactly what I was looking for my Instagram content. Creative, attentive, and a result that exceeds my expectations. I\'ll definitely come back.', initials: 'CB', rating: 5 },
+      { name: 'Marc & Julie', role: 'Couple — 2024', text: 'We were looking for someone discreet who knows how to blend in to capture real moments. That\'s exactly what we got. Thank you so much.', initials: 'MJ', rating: 5 },
+      { name: 'Volta Agency', role: 'Art Director', text: 'Professionalism, responsiveness, and a rare artistic sense. A trusted partner for all our visual projects. Highly recommended.', initials: 'AV', rating: 5 },
     ],
   },
   clients: {

@@ -76,6 +76,7 @@ const INFO_ITEMS = [
 
 export function Contact({ content }: ContactProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [emailError, setEmailError] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
   const isFr = content.lang === 'fr'
@@ -117,7 +118,11 @@ export function Contact({ content }: ContactProps) {
     e.preventDefault()
     const form = e.currentTarget
     const email = (form.querySelector('[name="email"]') as HTMLInputElement)?.value
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setEmailError(true)
+      return
+    }
+    setEmailError(false)
 
     setStatus('sending')
     try {
@@ -226,13 +231,21 @@ export function Contact({ content }: ContactProps) {
                 required
                 className={INPUT_CLASS}
               />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email *"
-                required
-                className={INPUT_CLASS}
-              />
+              <div className="flex flex-col gap-1">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email *"
+                  required
+                  onChange={() => emailError && setEmailError(false)}
+                  className={`${INPUT_CLASS} ${emailError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
+                />
+                {emailError && (
+                  <span className="text-xs text-red-400 font-body px-1">
+                    {isFr ? 'Adresse email invalide' : 'Invalid email address'}
+                  </span>
+                )}
+              </div>
             </div>
 
             <div className="contact-form-field">
@@ -245,17 +258,24 @@ export function Contact({ content }: ContactProps) {
             </div>
 
             <div className="contact-form-field">
-              <select
-                name="project_type"
-                required
-                defaultValue=""
-                className={`${INPUT_CLASS} appearance-none cursor-pointer`}
-              >
-                <option value="" disabled>Type de projet *</option>
-                {projectTypes.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  name="project_type"
+                  required
+                  defaultValue=""
+                  className={`${INPUT_CLASS} appearance-none cursor-pointer pr-10`}
+                >
+                  <option value="" disabled>{isFr ? 'Type de projet *' : 'Project type *'}</option>
+                  {projectTypes.map((t) => (
+                    <option key={t} value={t}>{t}</option>
+                  ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                  <svg className="w-4 h-4 dark:text-dark-subtle text-light-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+              </div>
             </div>
 
             <div className="contact-form-field">

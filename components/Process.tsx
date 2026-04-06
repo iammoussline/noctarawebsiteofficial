@@ -120,9 +120,13 @@ export function Process({ content }: ProcessProps) {
           {process.steps.map((step, i) => (
             <div
               key={i}
-              className="process-step flex flex-col items-center text-center group"
+              className="process-step relative flex flex-col items-center text-center group"
               data-cursor="expand"
             >
+              {/* Connecteur vertical mobile */}
+              {i < process.steps.length - 1 && (
+                <div className="lg:hidden absolute top-16 left-1/2 -translate-x-1/2 w-px h-10 dark:bg-dark-border bg-light-border" />
+              )}
               {/* Icon circle */}
               <div className="relative mb-6 z-10">
                 <div className="w-16 h-16 rounded-full dark:bg-dark-muted bg-light-muted border dark:border-dark-border border-light-border flex items-center justify-center dark:text-dark-subtle text-light-subtle group-hover:border-primary group-hover:text-primary group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-500">

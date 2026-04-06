@@ -106,6 +106,10 @@ body.light {
   background: #08080f;
 }
 
+.light ::-webkit-scrollbar-track {
+  background: #f8f8ff;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #1858ae;
   border-radius: 2px;

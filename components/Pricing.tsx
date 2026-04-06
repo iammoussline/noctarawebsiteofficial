@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -19,15 +19,17 @@ function PricingCardComponent({
   isPro,
   ctaLabel,
   onBook,
+  isTouch,
 }: {
   card: PricingCard
   isPro: boolean
   ctaLabel: string
   onBook: (p: string) => void
+  isTouch: boolean
 }) {
   return (
     <motion.div
-      whileHover={{ y: -6, scale: 1.015 }}
+      whileHover={isTouch ? {} : { y: -6, scale: 1.015 }}
       transition={{ type: 'spring', stiffness: 280, damping: 22 }}
       className={`relative flex flex-col rounded-2xl overflow-hidden group cursor-default
         ${card.highlight
@@ -154,8 +156,13 @@ function PricingCardComponent({
 
 export function Pricing({ content, onPersonalBook, onProBook }: PricingProps) {
   const [tab, setTab] = useState<'personal' | 'pro'>('personal')
+  const [isTouch, setIsTouch] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { pricing } = content
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia('(hover: none)').matches)
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -230,6 +237,7 @@ export function Pricing({ content, onPersonalBook, onProBook }: PricingProps) {
                 isPro={tab === 'pro'}
                 ctaLabel={tab === 'personal' ? pricing.ctaPersonal : pricing.ctaPro}
                 onBook={(p) => tab === 'personal' ? onPersonalBook(p) : onProBook(p)}
+                isTouch={isTouch}
               />
             ))}
           </motion.div>

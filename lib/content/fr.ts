@@ -120,11 +120,11 @@ export const fr: SiteContent = {
     title: 'Ce qu\'ils disent',
     subtitle: 'La satisfaction de mes clients est ma meilleure carte de visite.',
     items: [
-      { name: 'Sophie M.', role: 'Mariée — Été 2024', text: 'Des photos absolument magnifiques, qui capturent l\'essence de notre journée. Je suis émue à chaque fois que je les regarde. Merci du fond du cœur !', initials: 'SM' },
-      { name: 'Thomas D.', role: 'Directeur Commercial', text: 'Shooting corporate d\'une qualité exceptionnelle. Notre équipe est ravie, les photos ont été utilisées immédiatement pour notre site et nos supports de communication.', initials: 'TD' },
-      { name: 'Clara B.', role: 'Blogueuse Mode', text: 'Exactement ce que je cherchais pour mes contenus Instagram. Créatif, à l\'écoute, et un résultat qui dépasse mes attentes. Je reviendrai sans hésiter.', initials: 'CB' },
-      { name: 'Marc & Julie', role: 'Couple — PACS 2024', text: 'On cherchait quelqu\'un de discret qui sait se faire oublier pour capturer les vrais moments. C\'est exactement ce qu\'on a eu. Merci infiniment.', initials: 'MJ' },
-      { name: 'Agence Volta', role: 'Directrice Artistique', text: 'Professionnalisme, réactivité, et un sens artistique rare. Un partenaire de confiance pour tous nos projets visuels. Nous recommandons vivement.', initials: 'AV' },
+      { name: 'Sophie M.', role: 'Mariée — Été 2024', text: 'Des photos absolument magnifiques, qui capturent l\'essence de notre journée. Je suis émue à chaque fois que je les regarde. Merci du fond du cœur !', initials: 'SM', rating: 5 },
+      { name: 'Thomas D.', role: 'Directeur Commercial', text: 'Shooting corporate d\'une qualité exceptionnelle. Notre équipe est ravie, les photos ont été utilisées immédiatement pour notre site et nos supports de communication.', initials: 'TD', rating: 5 },
+      { name: 'Clara B.', role: 'Blogueuse Mode', text: 'Exactement ce que je cherchais pour mes contenus Instagram. Créatif, à l\'écoute, et un résultat qui dépasse mes attentes. Je reviendrai sans hésiter.', initials: 'CB', rating: 5 },
+      { name: 'Marc & Julie', role: 'Couple — PACS 2024', text: 'On cherchait quelqu\'un de discret qui sait se faire oublier pour capturer les vrais moments. C\'est exactement ce qu\'on a eu. Merci infiniment.', initials: 'MJ', rating: 5 },
+      { name: 'Agence Volta', role: 'Directrice Artistique', text: 'Professionnalisme, réactivité, et un sens artistique rare. Un partenaire de confiance pour tous nos projets visuels. Nous recommandons vivement.', initials: 'AV', rating: 5 },
     ],
   },
   clients: {
