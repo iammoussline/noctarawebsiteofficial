@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: '%s | Noctara.',
     default: 'Noctara. — Photographe Professionnel | Clermont-Ferrand',
   },
-  description: 'Noctara. — Photographe professionnel à Clermont-Ferrand. Portrait, mariage, corporate et événements. Des images qui capturent chaque instant unique, partout en France et à l\'international.',
+  description: 'Photographe professionnel à Clermont-Ferrand. Portrait, mariage, corporate, événements. Chaque instant a une seule chance.',
   keywords: ['photographe professionnel', 'Clermont-Ferrand', 'portrait', 'mariage', 'photographe corporate', 'événement', 'shooting photo', 'Kandemir Mouhammed', 'Noctara'],
   authors: [{ name: 'Kandemir MOUHAMMED — Noctara.' }],
   creator: 'Noctara.',
@@ -67,15 +67,19 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   alternates: {
-    canonical: 'https://thenoctara.com',
+    canonical: 'https://thenoctara.com/',
     languages: {
-      'fr': 'https://thenoctara.com',
+      'x-default': 'https://thenoctara.com/',
+      'fr': 'https://thenoctara.com/',
       'en': 'https://thenoctara.com/en',
     },
   },
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
 }

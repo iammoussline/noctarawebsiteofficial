@@ -3,11 +3,12 @@ import { EnHomePage } from './EnHomePage'
 
 export const metadata: Metadata = {
   title: 'Noctara. — Professional Photographer | Clermont-Ferrand',
-  description: 'Noctara. — Professional photographer based in Clermont-Ferrand, France. Portrait, wedding, corporate and events. Capturing unique moments, across France and internationally.',
+  description: 'Professional photographer in Clermont-Ferrand, France. Portrait, wedding, corporate, events. Every moment has only one chance.',
   alternates: {
     canonical: 'https://thenoctara.com/en',
     languages: {
-      'fr': 'https://thenoctara.com',
+      'x-default': 'https://thenoctara.com/',
+      'fr': 'https://thenoctara.com/',
       'en': 'https://thenoctara.com/en',
     },
   },
