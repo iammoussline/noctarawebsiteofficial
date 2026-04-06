@@ -104,9 +104,11 @@ export function Pricing({ content, onBook }: PricingProps) {
         stagger: 0.1,
         duration: 0.8,
         ease: 'power3.out',
+        clearProps: 'all',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 80%',
+          once: true,
         },
       })
     }, sectionRef)
@@ -124,7 +126,7 @@ export function Pricing({ content, onBook }: PricingProps) {
         {/* Header */}
         <div className="pricing-header text-center mb-16">
           <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
-            05 / TARIFS
+            TARIFS
           </p>
           <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text tracking-tight mb-4">
             {pricing.title}

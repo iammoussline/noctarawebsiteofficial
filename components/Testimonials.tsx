@@ -85,7 +85,7 @@ export function Testimonials({ content }: TestimonialsProps) {
         {/* Header */}
         <div className="testimonials-header text-center mb-16">
           <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
-            07 / TÉMOIGNAGES
+            TÉMOIGNAGES
           </p>
           <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text tracking-tight mb-4">
             {testimonials.title}

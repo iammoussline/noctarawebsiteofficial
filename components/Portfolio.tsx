@@ -81,7 +81,7 @@ export function Portfolio({ content }: PortfolioProps) {
         <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
-              03 / PORTFOLIO
+              PORTFOLIO
             </p>
             <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text leading-tight tracking-tight">
               {content.portfolio.title}

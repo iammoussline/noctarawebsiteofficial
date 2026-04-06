@@ -90,7 +90,7 @@ export function Clients({ content }: ClientsProps) {
     >
       <div className="max-w-7xl mx-auto px-6 mb-12">
         <p className="clients-title text-xs font-display tracking-[0.3em] text-accent uppercase text-center mb-2">
-          08 / CLIENTS
+          CLIENTS
         </p>
         <h2 className="clients-title text-center text-2xl font-display font-bold dark:text-dark-subtle text-light-subtle tracking-tight">
           {content.clients.title}

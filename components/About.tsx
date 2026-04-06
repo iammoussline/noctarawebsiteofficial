@@ -84,7 +84,7 @@ export function About({ content }: AboutProps) {
           <div ref={textRef} className="about-text flex flex-col gap-8">
             <div>
               <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
-                04 / À PROPOS
+                À PROPOS
               </p>
               <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text leading-tight tracking-tight mb-2">
                 {about.title}

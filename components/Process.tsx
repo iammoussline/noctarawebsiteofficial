@@ -100,7 +100,7 @@ export function Process({ content }: ProcessProps) {
         {/* Header */}
         <div className="process-header text-center mb-20">
           <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
-            06 / PROCESSUS
+            PROCESSUS
           </p>
           <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text tracking-tight mb-4">
             {process.title}

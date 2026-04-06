@@ -133,11 +133,11 @@ export function Hero({ content, onBook }: HeroProps) {
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 px-6 md:px-12 pt-32 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
         {/* Title */}
         <h1
           ref={titleRef}
-          className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] leading-none tracking-tighter text-white mb-8"
+          className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tighter text-white mb-8"
         >
           <span className="hero-line block">{content.hero.line1}</span>
           <span className="hero-line block text-accent">{content.hero.line2}</span>

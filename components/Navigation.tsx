@@ -91,7 +91,7 @@ export function Navigation({ content }: NavigationProps) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'py-3 dark:bg-dark-bg/80 bg-light-bg/80 backdrop-blur-xl border-b dark:border-dark-border border-light-border'
+            ? 'py-3 dark:bg-dark-bg/90 bg-light-bg/95 backdrop-blur-xl border-b dark:border-dark-border border-light-border shadow-sm'
             : 'py-5'
         }`}
       >
@@ -99,10 +99,11 @@ export function Navigation({ content }: NavigationProps) {
           {/* Logo */}
           <Link
             href={isFr ? '/' : '/en'}
-            className="font-logo text-2xl dark:text-dark-text text-light-text hover:text-accent transition-colors duration-300"
+            className="font-logo text-2xl transition-opacity duration-300 hover:opacity-80"
             data-cursor="link"
           >
-            Noctara<span className="text-accent">.</span>
+            <span className={scrolled ? 'dark:text-white text-[#020F21]' : 'text-white'}>Noctara</span>
+            <span style={{ color: '#FFBD59' }}>.</span>
           </Link>
 
           {/* Desktop nav */}
@@ -112,7 +113,11 @@ export function Navigation({ content }: NavigationProps) {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm font-heading font-medium dark:text-dark-subtle text-light-subtle hover:text-accent transition-colors duration-200 tracking-wide"
+                  className={`text-sm font-heading font-medium transition-colors duration-200 tracking-wide hover:text-accent ${
+                    scrolled
+                      ? 'dark:text-white/70 text-[#020F21]/70'
+                      : 'text-white/80'
+                  }`}
                   data-cursor="link"
                 >
                   {link.label}
@@ -126,7 +131,11 @@ export function Navigation({ content }: NavigationProps) {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 rounded-full dark:bg-dark-surface bg-light-surface flex items-center justify-center dark:text-dark-subtle text-light-subtle hover:text-accent transition-colors duration-200"
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 hover:text-accent ${
+                scrolled
+                  ? 'dark:bg-dark-surface bg-light-muted dark:text-white/60 text-[#020F21]/60'
+                  : 'bg-white/10 text-white/70 backdrop-blur-sm'
+              }`}
               aria-label="Toggle theme"
               data-cursor="link"
             >
@@ -142,10 +151,14 @@ export function Navigation({ content }: NavigationProps) {
               )}
             </button>
 
-            {/* Language */}
+            {/* Language — pill arrondi */}
             <Link
               href={langHref}
-              className="text-xs font-display font-bold dark:text-dark-subtle text-light-subtle hover:text-accent transition-colors duration-200 tracking-widest px-2 py-1 rounded dark:bg-dark-surface bg-light-surface"
+              className={`text-xs font-display font-bold transition-all duration-200 tracking-widest w-9 h-9 rounded-full flex items-center justify-center border hover:text-accent hover:border-accent ${
+                scrolled
+                  ? 'dark:bg-dark-surface bg-light-muted dark:text-white/70 text-[#020F21]/70 dark:border-dark-border border-light-border'
+                  : 'bg-white/10 text-white/80 border-white/20 backdrop-blur-sm'
+              }`}
               data-cursor="link"
             >
               {isFr ? 'EN' : 'FR'}

@@ -76,22 +76,21 @@ export function Contact({ content }: ContactProps) {
       id="contact"
       className="py-24 dark:bg-dark-bg bg-light-bg"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left info */}
-          <div className="contact-left flex flex-col gap-8">
-            <div>
-              <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">
-                09 / CONTACT
-              </p>
-              <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text tracking-tight mb-4">
-                {contact.title}
-              </h2>
-              <p className="text-base font-body dark:text-dark-subtle text-light-subtle">
-                {contact.subtitle}
-              </p>
-            </div>
+      <div className="max-w-5xl mx-auto px-6">
+        {/* Section header — centré */}
+        <div className="text-center mb-16">
+          <p className="text-xs font-display tracking-[0.3em] text-accent uppercase mb-3">CONTACT</p>
+          <h2 className="text-4xl md:text-5xl font-display font-black dark:text-dark-text text-light-text tracking-tight mb-3">
+            {contact.title}
+          </h2>
+          <p className="text-base font-body dark:text-dark-subtle text-light-subtle max-w-md mx-auto">
+            {contact.subtitle}
+          </p>
+        </div>
 
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Left info */}
+          <div className="contact-left flex flex-col gap-6">
             {/* Info cards */}
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-4 p-5 rounded-xl dark:bg-dark-surface bg-light-surface border dark:border-dark-border border-light-border">
